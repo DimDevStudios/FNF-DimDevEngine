@@ -41,12 +41,20 @@ class MainMenuState extends MusicBeatState
 		'story_mode',
 		'freeplay',
 		#if MODS_ALLOWED 'mods', #end
-		#if ACHIEVEMENTS_ALLOWED 'awards', #end
+		//#if ACHIEVEMENTS_ALLOWED 'awards', #end
 		'credits',
-		'donate',
+		/ /'donate',
 		//'discord', you can go to discord now by pressing ctrl in credits
 		'options'
 	];
+                titlestatebg = new FlxBackdrop(Paths.image('loading'), 0.2, 0, true, true);
+		titlestatebg.velocity.set(200, 110);
+		titlestatebg.updateHitbox();
+		titlestatebg.alpha = 0.5;
+		titlestatebg.screenCenter(X);
+		add(titlestatebg);
+		titlestatebg.shader = swagShader.shader;
+
 
 	#if MODS_ALLOWED
 	var customOption:String;
